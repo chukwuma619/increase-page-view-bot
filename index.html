@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Views</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #generateViewsForm {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+
+
+
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .loading-message {
+      display: none;
+      text-align: center;
+    }
+
+    .finished-message {
+      display: none;
+      text-align: center;
+      color: green;
+    }
+
+  </style>
+</head>
+
+<body>
+  
+  <form id="generateViewsForm" method="POST" action="generateViews">
+    <h1>Generate Views</h1>
+    <label for="url">URL:</label>
+    <input type="text" id="url" name="url" required><br><br>
+    <label for="number">Number of Views:</label>
+    <input type="number" id="number" name="number" required><br><br>
+    <button type="submit">Generate Views</button>
+    <p class="loading-message">Loading...</p>
+    <p class="finished-message">Views generated successfully!</p>
+  </form>
+
+  <!-- <script>
+    const domain = window.location.origin;
+    document.getElementById('generateViewsForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Display loading message
+      document.querySelector('.loading-message').style.display = 'block';
+
+      // Get form data
+      const formData = new FormData(this);
+console.log(domain, formData, "echo this")
+      try {
+        // Send form data to server
+        const response = await fetch(`${domain}/generate`, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to generate views');
+        }
+
+        console.log(response)
+        // Display finished message
+        document.querySelector('.finished-message').style.display = 'block';
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle error
+      } finally {
+        // Hide loading message
+        document.querySelector('.loading-message').style.display = 'none';
+      }
+    });
+  </script> -->
+</body>
+</html>
